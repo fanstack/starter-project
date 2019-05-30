@@ -1,0 +1,113 @@
+<fan-page-spinner></fan-page-spinner>
+
+<div class="fan-stack-demo">
+	<h2>Welcome to the FANstack Demo Project</h2>
+
+	<button *ngIf='!user.signedIn' (click)='auth.signIn()'>Sign in</button>
+
+	<div *ngIf='user.signedIn' class='user-details'>
+		<img src="{{user.photoURL}}">
+		<div>
+			<h4>{{user.name}}</h4>
+			<small>Session Id: {{user.sessionId}}</small>
+		</div>
+		<button (click)='auth.signOut()'>Sign out</button>
+	</div>
+
+	<div *ngIf='fanError.error' class='fan-error'>
+		<div class="close-button">
+			<button (click)='error.clearError();'>X</button>
+		</div>
+		<h4>An Error Occurred</h4>
+		<pre>{{fanError | json}}</pre>
+	</div>
+
+	<div *ngIf='!fanError.error && !user.signedIn'>
+		<hr>
+		<p>
+			This project shows how applications can be built using Firebase, Angular and Node with typesafe and
+			debuggable function calls.
+		</p>
+	</div>
+
+	<ng-container *ngIf='user.signedIn'>
+
+		<div>
+			<hr>
+			<h4>Parameterized Function Demo</h4>
+			<p>
+				This demo uses a generated shim to synchronously call the function and display the result.
+				Add an extra delay to demonstrate the page spinner.
+			</p>
+
+			<table>
+				<tr>
+					<td>Your Name:</td>
+					<td><input type="text" [(ngModel)]="person.first"></td>
+				</tr>
+				<tr>
+					<td>Favorite Show:</td>
+					<td>
+						<select [(ngModel)]="person.favoriteShow">
+							<option value="DC">DC</option>
+							<option value="Marvel">Marvel</option>
+							<option value="Star Trek">Star Trek</option>
+							<option value="Star Wars">Star Wars</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Extra Delay:</td>
+					<td>
+						<select [(ngModel)]="delay">
+							<option value="0">None</option>
+							<option value="2000">Two Seconds</option>
+							<option value="5000">Five Seconds</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button (click)='sayHello()'>Submit</button></td>
+				</tr>
+				<tr>
+					<td>Function Response:</td>
+					<td [class.function-response]='!!hello'>
+						<pre>{{hello}}</pre>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<hr>
+			<h4>Function Throwing Error Demo</h4>
+			<p>
+				This demo calls a function that throws an error and demonstrates how that error is propagated
+				back to the client and made available from the FanErrorService.
+			</p>
+			<button (click)='goBoom()'>Go Boom!</button>
+		</div>
+
+		<div>
+			<hr>
+			<h4>Function Using CloudSQL Demo</h4>
+			<p>
+				This demo calls a function that reads people from a MySQL database.
+				Follow the instructions at FanStack.com to set up SQL or you'll get an ECONNREFUSED error.
+			</p>
+			<button (click)='readPeople()'>Read People</button>
+			<table class='grid-data'>
+				<tr *ngFor='let person of people'>
+					<td>{{person.personId}}</td>
+					<td>{{person.first}}</td>
+					<td>{{person.last}}</td>
+					<td>{{person.favoriteShow}}</td>
+				</tr>
+			</table>
+		</div>
+
+	</ng-container>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,1 @@
+export { FanFunctionsService } from './fan-functions.service.gen';

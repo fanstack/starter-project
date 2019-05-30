@@ -1,0 +1,98 @@
+.fan-stack-demo {
+  font-family: sans-serif;
+  background-color: #fff;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 1em;
+  max-width: 40em;
+  margin: 1em auto 7em auto;
+
+  hr {
+    margin: 2em 1em;
+    border: 0;
+    border-top: solid 1px rgba(0, 0, 0, 0.1);
+  }
+
+  td:first-child {
+    text-align: right;
+  }
+
+  .function-response {
+    background-color: rgba(0, 255, 0, 0.3);
+    pre {
+      margin: 0;
+    }
+  }
+
+  button {
+    margin: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    background-color: rgba(127, 255, 0, 0.05);
+    font-size: 1.2em;
+    &:hover {
+      background-color: rgba(127, 255, 0, 0.2);
+    }
+  }
+
+  div.user-details {
+    display: flex;
+    > img {
+      height: 60px;
+      border-radius: 30px;
+      border: solid 1px rgba(0, 0, 0, 0.2);
+    }
+    > div {
+      width: 100%;
+      margin-left: 1em;
+      > h4 {
+        margin: 15px 0 2px 0;
+      }
+    }
+    > button {
+      width: 160px;
+    }
+  }
+
+  table.grid-data {
+    border-collapse: collapse;
+    width: 100%;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+  }
+
+  div.fan-error {
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    background-color: rgb(153, 51, 51);
+    color: #fff;
+    min-height: 1.1em;
+    padding: 1em;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    pre {
+      overflow-x: scroll;
+    }
+
+    div.close-button {
+      position: relative;
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        border: 0;
+        color: #fff;
+      }
+    }
+  }
+}

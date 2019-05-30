@@ -1,0 +1,35 @@
+#pageSpinner {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 127, 0.1);
+  cursor: wait;
+  > div {
+    position: fixed;
+    right: 5vh;
+    bottom: 5vh;
+    width: 12vh;
+    height: 12vh;
+    box-sizing: border-box;
+    border: 1vh solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #363;
+    border-bottom-color: #363;
+    animation: spin 0.7s linear infinite;
+    -webkit-animation: spin 0.7s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

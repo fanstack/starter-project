@@ -1,0 +1,1 @@
+export { FanPageSpinnerWidget } from './page-spinner/fan-page-spinner.widget';
